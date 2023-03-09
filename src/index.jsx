@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import Timer from './components/Exemplo1';
+
 /*
 class OlaMundo extends React.Component{
     render(){
@@ -23,4 +25,4 @@ class Pagina01 extends React.Component{
 }
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<Pagina01 nome={["Jailson", "teste"]} />);
+root.render(<Timer/>);
