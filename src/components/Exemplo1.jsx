@@ -1,7 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
 
 class Timer extends React.Component {
+    
     constructor(props) {
         super(props);
         this.state = { seconds: 0 };
@@ -20,12 +20,26 @@ class Timer extends React.Component {
     componentWillUnmount() {
         clearInterval(this.interval);
     }
+
+    startStop() {
+        if(this.interval==null) {
+            this.interval = setInterval(() => this.contar(), 1000);
+        } else {
+            clearInterval(this.interval);
+        }
+    }
     
     render() {
     return (
-        <div>
-        Segundos: {this.state.seconds}
+        <>
+        <div className='bg-black w-16 h-16 m-4 rounded-xl flex flex-col justify-center items-center'>
+            <h1 className="text-3xl font-bold  text-azulEscuro cronometro">
+            {this.state.seconds}
+            </h1>
         </div>
+        <button onClick={this.startStop()} className='bg-azulEscuro text-white m-4 p-2 rounded-lg'>Inciar/parar</button>
+        <button className='bg-red-500 text-white m-4 p-2 rounded-lg'>zerar</button>
+        </>
     );
     }
 }
